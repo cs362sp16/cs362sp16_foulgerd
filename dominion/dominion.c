@@ -5,6 +5,16 @@
 #include <math.h>
 #include <stdlib.h>
 
+/*
+ * PROTOTYPES
+ */
+int cardSmithy(int card, struct gameState *state, int handPos, int currentPlayer);
+int cardVillage(int card, struct gameState *state, int handPos, int currentPlayer);
+int cardGreat_hall(int card, struct gameState *state, int handPos, int currentPlayer);
+int cardRemodel(int choice1, int choice2, int card, struct gameState *state, int handPos, int currentPlayer);
+int cardSteward(int choice1, int choice2, int choice3, int card, struct gameState *state, int handPos, int currentPlayer);
+
+
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
     return 1;
@@ -658,6 +668,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int drawntreasure=0;
   int cardDrawn;
   int z = 0;// this is the counter for the temp hand
+  
+  int toReturn = -1;	//This is the value to return after getting data from functions
+  
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
@@ -803,52 +816,18 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 			
     case remodel:
-      j = state->hand[currentPlayer][choice1];  //store card we will trash
-
-      if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) )
-	{
-	  return -1;
-	}
-
-      gainCard(choice2, state, 0, currentPlayer);
-
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-
-      //discard trashed card
-      for (i = 0; i < state->handCount[currentPlayer]; i++)
-	{
-	  if (state->hand[currentPlayer][i] == j)
-	    {
-	      discardCard(i, currentPlayer, state, 0);			
-	      break;
-	    }
-	}
-
-
-      return 0;
+      toReturn = cardRemodel(choice1, choice2, card, state, handPos, currentPlayer);
+	  return toReturn;
 		
     case smithy:
       //+3 Cards
-      for (i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      toReturn = cardSmithy(card, state, handPos, currentPlayer);
+	  return toReturn;
 		
     case village:
       //+1 Card
-      drawCard(currentPlayer, state);
-			
-      //+2 Actions
-      state->numActions = state->numActions + 2;
-			
-      //discard played card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      toReturn = cardVillage(card, state, handPos, currentPlayer);
+	  return toReturn;
 		
     case baron:
       state->numBuys++;//Increase buys by 1!
@@ -902,15 +881,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case great_hall:
-      //+1 Card
-      drawCard(currentPlayer, state);
-			
-      //+1 Actions
-      state->numActions++;
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      toReturn = cardGreat_hall(card, state, handPos, currentPlayer);
+	  return toReturn;
 		
     case minion:
       //+1 action
@@ -964,27 +936,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case steward:
-      if (choice1 == 1)
-	{
-	  //+2 cards
-	  drawCard(currentPlayer, state);
-	  drawCard(currentPlayer, state);
-	}
-      else if (choice1 == 2)
-	{
-	  //+2 coins
-	  state->coins = state->coins + 2;
-	}
-      else
-	{
-	  //trash 2 cards in hand
-	  discardCard(choice2, currentPlayer, state, 1);
-	  discardCard(choice3, currentPlayer, state, 1);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+	  toReturn = cardSteward(choice1, choice2, choice3, card, state, handPos, currentPlayer);
+	  return toReturn;
 		
     case tribute:
       if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
@@ -1328,6 +1281,85 @@ int updateCoins(int player, struct gameState *state, int bonus)
   return 0;
 }
 
+int cardSmithy(int card, struct gameState *state, int handPos, int currentPlayer) {
+	int i;
+	for (i = 0; i < 3; i++) {
+	  drawCard(currentPlayer, state);
+	}
+			
+      //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+}
+
+int cardVillage(int card, struct gameState *state, int handPos, int currentPlayer) {
+      //+1 Card
+      drawCard(currentPlayer, state);
+			
+      //+2 Actions
+      state->numActions = state->numActions + 2;
+			
+      //discard played card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+      return 0;
+}
+
+int cardGreat_hall(int card, struct gameState *state, int handPos, int currentPlayer) {
+	//+1 Card
+      drawCard(currentPlayer, state);
+			
+      //+1 Actions
+      state->numActions++;
+			
+      //discard card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+      return 0;
+}
+
+int cardRemodel(int choice1, int choice2, int card, struct gameState *state, int handPos, int currentPlayer) {
+	int i;
+	
+	int j = state->hand[currentPlayer][choice1];  //store card we will trash
+	
+    if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) ) {
+	  return -1;
+	}
+
+      gainCard(choice2, state, 0, currentPlayer);
+
+      //discard card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+
+      //discard trashed card
+    for (i = 0; i < state->handCount[currentPlayer]; i++) {
+	  if (state->hand[currentPlayer][i] == j) {
+	      discardCard(i, currentPlayer, state, 0);			
+	      break;
+	    }
+	}
+	
+    return 0;
+}
+
+int cardSteward(int choice1, int choice2, int choice3, int card, struct gameState *state, int handPos, int currentPlayer) {
+	if (choice1 == 1)
+	{
+	  //+2 cards
+	  drawCard(currentPlayer, state);
+	  drawCard(currentPlayer, state);
+	} else if (choice1 == 2) {
+	  //+2 coins
+	  state->coins = state->coins + 2;
+	} else {
+	  //trash 2 cards in hand
+	  discardCard(choice2, currentPlayer, state, 1);
+	  discardCard(choice3, currentPlayer, state, 1);
+	}
+			
+      //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+}
 
 //end of dominion.c
 
