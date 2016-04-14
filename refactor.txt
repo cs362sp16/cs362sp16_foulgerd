@@ -1,1 +1,8 @@
-None yet
+I have refactored the five cards: smithy, village, remodel, great hall, and steward.
+
+I used the same method of extraction for all of the cards modified. In order to
+do this correctly, I first had to create a variable called "toReturn." This
+variable is used to return the original value of the cards back to the game.
+As far as extraction goes, I copied and pasted each card into a new function.
+I then made sure that each card received the variables they needed.
+
