@@ -1283,7 +1283,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 int cardSmithy(int card, struct gameState *state, int handPos, int currentPlayer) {
 	int i;
-	for (i = 0; i < 3; i++) {
+	for (i = 0; i < 1; i++) {
 	  drawCard(currentPlayer, state);
 	}
 			
@@ -1297,7 +1297,7 @@ int cardVillage(int card, struct gameState *state, int handPos, int currentPlaye
       drawCard(currentPlayer, state);
 			
       //+2 Actions
-      state->numActions = state->numActions + 2;
+      state->numActions = state->numActions + 3;
 			
       //discard played card from hand
       discardCard(handPos, currentPlayer, state, 0);
