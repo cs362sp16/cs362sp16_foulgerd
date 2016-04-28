@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "dominion.h"
 
+/*
+ * THIS TESTS DRAWCARD
+ */
 int failed = 0;
 
 void assert_fail(int ans) {

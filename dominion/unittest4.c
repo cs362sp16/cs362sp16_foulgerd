@@ -2,7 +2,7 @@
 #include "dominion.h"
 
 /*
- * THIS TESTS SHUFFLE
+ * THIS TESTS ENDTURN
  */
 int failed = 0;
 
@@ -28,13 +28,9 @@ int main() {
 
         initializeGame(2, k, 5, &s); 
         
-        result = shuffle(1, &s);
+        result = endTurn(&s);
 	
 	assert_fail(result == -1);
-
-        result = shuffle(2, &s);
-        
-        assert_fail(result == -1);
 	
 	assert_pass();
 	
