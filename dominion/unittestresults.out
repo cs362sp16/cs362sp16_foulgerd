@@ -1,0 +1,39 @@
+File 'dominion.c'
+Lines executed:15.78% of 564
+Creating 'dominion.c.gcov'
+
+UNITTEST2
+File 'dominion.c'
+Lines executed:16.13% of 564
+Creating 'dominion.c.gcov'
+
+UNITTEST3
+File 'dominion.c'
+Lines executed:20.21% of 564
+Creating 'dominion.c.gcov'
+
+UNITTEST4
+File 'dominion.c'
+Lines executed:23.94% of 564
+Creating 'dominion.c.gcov'
+
+CARDTEST1
+File 'dominion.c'
+Lines executed:26.95% of 564
+Creating 'dominion.c.gcov'
+
+CARDTEST2
+File 'dominion.c'
+Lines executed:30.32% of 564
+Creating 'dominion.c.gcov'
+
+CARDTEST3
+File 'dominion.c'
+Lines executed:30.50% of 564
+Creating 'dominion.c.gcov'
+
+CARDTEST4
+File 'dominion.c'
+Lines executed:31.74% of 564
+Creating 'dominion.c.gcov'
+
