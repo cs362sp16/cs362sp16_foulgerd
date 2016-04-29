@@ -1,0 +1,3 @@
+I found a bug in gardens. I would say that it is more of a lack of code. It
+doesn't behave the way that it supposed. Instead, it just returns negaetive
+one.

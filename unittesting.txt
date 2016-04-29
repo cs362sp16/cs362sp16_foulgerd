@@ -1,0 +1,17 @@
+I tested the functions drawcard, shuffle, buycard, and endturn. I also tested 
+the cards smithy, village, ambassador, and council room.
+
+When testing the card "gardens", I noticed it didn't add to code coverage. I 
+think this is because the card doesn't do anything special besides return 
+negative one. I decided to test another card though. As far as coverage goes, 
+my functions look like they are testing about 15 to 23 percent of dominion.c 
+each. Each card test covered about 17 to 21 percent of dominion.c. When all
+the tests were run together, total code coverage was about 31 percent of 
+dominion.c.
+
+As far as testing goes, my tests are rather simplistic. I am basically testing
+that each function and card completed correctly or not. That means that my 
+tests don't really account for any accidentals or incorrect behavior.
+
+Note: If you want to run all the tests you can use the "make alltests" make
+command. This will dump the results of all the tests into unittestresults.out
