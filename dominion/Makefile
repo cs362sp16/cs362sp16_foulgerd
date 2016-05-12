@@ -19,6 +19,8 @@ all: playdom player
 
 unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
 
+randomtestresults.out: randomtestadventurer randomtestcard1 randomtestcard2
+
 unittest1:
 	#./playdom 2
 	gcc -o unittest1.o unittest1.c -g dominion.o rngs.o interface.o $(CFLAGS)
@@ -68,6 +70,24 @@ cardtest4:
 	./cardtest4.o > temp
 	echo "CARDTEST4" >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
+
+randomtestadventurer:
+	gcc -o randomtestadventurer.o randomtestadventurer.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	./randomtestadventurer.o > temp
+	echo "CARD TEST ADVENTURER" >> randomtestadventurer.out
+	gcov -f dominion.c >> randomtestadventurer.out
+
+randomtestcard1:
+	gcc -o randomtestcard1.o randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	./randomtestcard1.o > temp
+	echo "CARD TEST ADVENTURER" >> randomtestcard1.out
+	gcov -f dominion.c >> randomtestcard1.out
+
+randomtestcard2:
+	gcc -o randomtestcard2.o randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	./randomtestcard2.o > temp
+	echo "CARD TEST ADVENTURER" >> randomtestcard2.out
+	gcov -f dominion.c >> randomtestcard2.out
 
 clean:
 	rm -f *.o playdom.exe playdom test.exe test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM temp
