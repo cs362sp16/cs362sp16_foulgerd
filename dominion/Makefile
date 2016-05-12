@@ -80,13 +80,13 @@ randomtestadventurer:
 randomtestcard1:
 	gcc -o randomtestcard1.o randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	./randomtestcard1.o > temp
-	echo "CARD TEST ADVENTURER" >> randomtestcard1.out
+	echo "CARD TEST 1: VILLAGE" >> randomtestcard1.out
 	gcov -f dominion.c >> randomtestcard1.out
 
 randomtestcard2:
 	gcc -o randomtestcard2.o randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	./randomtestcard2.o > temp
-	echo "CARD TEST ADVENTURER" >> randomtestcard2.out
+	echo "CARD TEST 2: GREAT HALL" >> randomtestcard2.out
 	gcov -f dominion.c >> randomtestcard2.out
 
 clean:
