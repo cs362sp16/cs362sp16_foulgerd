@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
         for (i = 0; i < 1; i++) {
                 initializeGame(playerGen(), k, seed, &s);
 
-                cardVillage(2, &s, 1, 1);
+                cardVillage(1, &s, 1, 1);
         }
 
 	return 0;

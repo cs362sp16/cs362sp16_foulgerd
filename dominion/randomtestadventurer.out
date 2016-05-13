@@ -110,7 +110,7 @@ Function 'discardCard'
 Lines executed:0.00% of 13
 
 Function 'cardEffect'
-Lines executed:4.63% of 216
+Lines executed:5.09% of 216
 
 Function 'getCost'
 Lines executed:0.00% of 30
@@ -167,6 +167,6 @@ Function 'compare'
 Lines executed:83.33% of 6
 
 File 'dominion.c'
-Lines executed:19.33% of 564
+Lines executed:19.50% of 564
 Creating 'dominion.c.gcov'
 

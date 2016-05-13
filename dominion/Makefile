@@ -81,13 +81,13 @@ randomtestcard1:
 	gcc -o randomtestcard1.o randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	./randomtestcard1.o > temp
 	echo "CARD TEST 1: VILLAGE" >> randomtestcard1.out
-	gcov -f dominion.c >> randomtestcard1.out
+	gcov -f -b dominion.c >> randomtestcard1.out
 
 randomtestcard2:
 	gcc -o randomtestcard2.o randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	./randomtestcard2.o > temp
 	echo "CARD TEST 2: GREAT HALL" >> randomtestcard2.out
-	gcov -f dominion.c >> randomtestcard2.out
+	gcov -f -b dominion.c >> randomtestcard2.out
 
 clean:
 	rm -f *.o playdom.exe playdom test.exe test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM temp
