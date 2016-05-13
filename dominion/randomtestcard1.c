@@ -4,7 +4,7 @@
 #include "dominion.h"
 
 /*
- * THIS TESTS SMITHY
+ * THIS TESTS VILLAGE
  */
 int failed = 0;
 
@@ -27,7 +27,6 @@ int playerGen() {
 }
 
 int stateGen() {
-        //struct gameState s;
         int number = rand() % 10 + 1;
 
         return number;
@@ -35,25 +34,21 @@ int stateGen() {
 
 int main(int argc, char **argv) {
 	srand(time(NULL));
-        int result, seed, i;
+        int result, seed, i, n;
 	struct gameState s;
-        //srand(time(NULL));
-	
-        if (argc == 2) {
-                seed = atoi(argv[1]);
-        } else {
-                seed = rand() % 200 + 1;
-                printf("seed: %d\n", seed);
-        }
 
         int k[10] = {smithy,adventurer,gardens,embargo,cutpurse,mine,ambassador,
                 outpost,baron,tribute};
 
         for (i = 0; i < 1; i++) {
-                initializeGame(playerGen(), k, seed, &s);
+                initializeGame(playerGen(), k, 42, &s);
 
-                cardVillage(1, &s, 1, 1);
+                result = cardEffect(village, 1, 1, 1, &s, 3, 0);
+
+                assert_fail(result);
         }
+
+        assert_pass(result);
 
 	return 0;
 }

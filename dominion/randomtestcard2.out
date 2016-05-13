@@ -40,16 +40,16 @@ Taken at least once:0.00% of 6
 Calls executed:0.00% of 1
 
 Function 'discardCard'
-Lines executed:69.23% of 13
+Lines executed:92.31% of 13
 Branches executed:100.00% of 6
-Taken at least once:50.00% of 6
+Taken at least once:83.33% of 6
 No calls
 
 Function 'cardEffect'
-Lines executed:5.09% of 216
+Lines executed:6.02% of 216
 Branches executed:12.30% of 187
-Taken at least once:1.60% of 187
-Calls executed:1.89% of 53
+Taken at least once:2.14% of 187
+Calls executed:3.77% of 53
 
 Function 'getCost'
 Lines executed:0.00% of 30
@@ -58,10 +58,10 @@ Taken at least once:0.00% of 28
 No calls
 
 Function 'drawCard'
-Lines executed:36.36% of 22
-Branches executed:33.33% of 6
-Taken at least once:16.67% of 6
-Calls executed:0.00% of 1
+Lines executed:100.00% of 22
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+Calls executed:100.00% of 1
 
 Function 'getWinners'
 Lines executed:0.00% of 24
@@ -126,9 +126,9 @@ Taken at least once:0.00% of 10
 Calls executed:0.00% of 3
 
 Function 'shuffle'
-Lines executed:93.75% of 16
+Lines executed:100.00% of 16
 Branches executed:100.00% of 8
-Taken at least once:87.50% of 8
+Taken at least once:100.00% of 8
 Calls executed:100.00% of 2
 
 Function 'initializeGame'
@@ -154,9 +154,9 @@ Taken at least once:75.00% of 4
 No calls
 
 File 'dominion.c'
-Lines executed:22.87% of 564
-Branches executed:23.26% of 417
-Taken at least once:15.83% of 417
-Calls executed:12.63% of 95
+Lines executed:26.42% of 564
+Branches executed:24.22% of 417
+Taken at least once:17.99% of 417
+Calls executed:14.74% of 95
 Creating 'dominion.c.gcov'
 

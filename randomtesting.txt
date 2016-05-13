@@ -1,0 +1,15 @@
+I noticed that I got better coverage depending on the amount of random players
+generated. I also noticed that the more times I ran the loop that repeated my
+tests, I got higher dominion.c coverage. After awhile, it didn't matter how
+many times I ran the loop. It is hard to see how much code coverage I got for
+adventurer because it is still built into cardEffect. For cardEffect, I was
+getting 15% coverage. With cardGreat_hall and cardVillage, I was getting 100%
+code coverage. To get code to cover cardGreat_hall was easy, as it is only 5
+lines. However, getting 100% code coverage for cardVillage, it was much harder.
+Depending on the inputs, the game would crash. This required that I had to 
+change the inputs that were given to cardVillage. Overall, I feel that code 
+coverage with random tests can be much higher. It also depends on how the tests
+are written with unit testing. With unit testing, I ran into shallow bugs. I 
+think this was because I would only test the game in a normal way. With random
+testing, things are played very differently because of the random values. With
+random testing, you are more likely to run into bugs you wouldn't normally find.
