@@ -86,8 +86,15 @@ randomtestcard1:
 randomtestcard2:
 	gcc -o randomtestcard2.o randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	./randomtestcard2.o > temp
-	echo "CARD TEST 2: GREAT HALL" >> randomtestcard2.out
+	echo "CARD TEST 2: GREAT HALL" > randomtestcard2.out
 	gcov -f -b dominion.c >> randomtestcard2.out
+
+testdominion:
+	gcc -o testdominion.o testdominion.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	./testdominion.o > temp
+	echo "TEST OF DOMINION" > testdominion.out
+	gcov -f -b dominion.c >> testdominion.out
+
 
 clean:
 	rm -f *.o playdom.exe playdom test.exe test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM temp
