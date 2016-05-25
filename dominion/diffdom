@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo -n "Enter other directory to test: "
+read dir2
+
+echo -n "Enter a seed: "
+
+make all
+make testdominion
+
+cd $dir2
+make all
+make testdominion
+
+cd ../../dominion
+
+diff --suppress-common-lines temp $dir2/temp > diffFile
+ 
+if [[ -s diffFile ]] ; then
+   echo "TEST FAILED"
+else
+   echo "TEST SUCCESS"
+fi ;

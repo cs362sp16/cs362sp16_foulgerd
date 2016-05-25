@@ -1,0 +1,14 @@
+Getting the diffdom script to work might require that you change the other
+students code in a way that is more consistent with the way that I use my
+Makefile. 
+
+After generating a diff using different seeds, it is very easy to tell which one
+is different, but it is very hard to tell which one is correct or MORE correct.
+For example, the other users code would generate different number of players
+or purchase different cards. However, it seems that overall, the same functions
+that are called will pass. It isn't very ideal to use differential testing,
+because it is possible that both implementations are correct. However, one may
+or may not be more correct than the other. 
+
+I was able to obtain 61.17% code coverage. With my classmate's code, I got
+58%.
