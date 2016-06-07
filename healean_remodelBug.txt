@@ -1,0 +1,13 @@
+In remodel
+
+Description: this bug returns a 0 instead of a -1, meaning that all tests will
+pass using remodel. Not only that, but remodel will always pass and could lead
+to undersirable results when playing the game.
+
+How to produce: when using remodel, make sure to pass in a card for choice 1
+that is greater than the card passed in for choice 2.
+
+Priority and severity: The priority for this should be medium, but the severity
+should be low. I say this because the game is still playable, but you may get
+undesirable results.
+

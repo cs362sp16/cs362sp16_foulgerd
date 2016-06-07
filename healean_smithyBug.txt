@@ -1,0 +1,10 @@
+In smithy
+
+Description: smithy gives the player 4 cards, which is the incorrect number.
+It should only give the players 3 cards. 
+
+How to produce: use smithy.
+
+Priority and severity: The priority and severity of this bug is low because
+the game is perfectly playable and none of the players get an unfair advantage.
+

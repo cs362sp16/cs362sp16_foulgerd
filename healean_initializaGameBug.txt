@@ -1,0 +1,12 @@
+In initializaGame
+
+Description: the bug is that the game distributes 0 cards to the player when
+it should actually distribute 5 cards.
+
+How to produce: initialize the game. It is undetectable unless you count the
+cards in the players hand right off the bat.
+
+Priority and severity: the priority of this bug is medium, because it means
+the game is being played in an incorrect way, but still playable. The severity
+is low because it doesn't cause the game to crash and it is completely playable.
+

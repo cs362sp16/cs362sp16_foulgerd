@@ -1,0 +1,28 @@
+I found an interesting bug in one students code that didn't distribute the 
+correct number of cards to the players when the game was being initialized.
+Weirdly enough, this same bug is in my own code as well. I was able to find
+this bug by trying to determine the number of cards in the players hand 
+directly after the game began. This resulted in a number of 0 which didn't make
+sense to me as the player should receive 5 cards. 
+
+In order to debug this problem, I will be using GDB. I know that this problem 
+occurs in initializeGame. This means I could use any of my tests that call 
+initializeGame. The first thing I did was create break points at the beginning
+of the initializeGame function. From there, I made sure to inspect the number
+of cards in the players hand and whose turn it was at all times. This made it
+easier for me to determine when these values would change. From there, I 
+stepped down until I had reached the point where each player would receive 5
+cards. Oddly enough, the bug is simply caused by code that is commented out.
+When this code is removed, each player will draw 5 cards.
+
+Rules 1, 3, 7, and 9 of Agans' debugging rules applied to what I was doing. In
+order for me to even have found this bug, I would have to understand the 
+system. In this case, the system is dominion. It seemed odd that the player
+received the 0 cards when the game began. This is when rule 3 came into play.
+Instead of "thinking" about how the problem was caused, I decided to look for 
+the problem. Rule 7 also played a large role here, because I did not trust that
+my test was doing what I thought it was. Instead I used debugging to completely
+know for sure how the problem was occuring. Not only that, but I assumed that 
+each player was receiving 5 cards when the game started. Obviously, this is one
+that I should have questioned. Last, in order to make sure that it was fixed, I
+used rule 9. 

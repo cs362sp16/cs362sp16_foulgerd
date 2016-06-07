@@ -1,0 +1,15 @@
+Overall, mutation testing was interesting to learn about. It required me to 
+learn more than what I already knew. That being said, I used the tool 
+"cmutate" to generate 157 mutations of dominion.c. Out of the 157, 133 of them
+passed all of my unit tests and only 24 of them failed my unit tests. That
+means that 133 of the mutants were killed.
+
+Normally this means that the test suite I have created is pretty good. However,
+I believe that my unit tests are too simple. Most of the cards I use return 
+simple values like -1 or 0. I think that this means that more tests are passing
+when I think they should end up failing. For example, I decided to look at one
+of the mutants to see what it changed and created a diff of the mutant and
+dominion. This one happened to change the for loop for smithy so that it 
+doesn't deal any cards. This will always pass due to the return value. It's also
+possible the cmutate created many duplicates. However, that being said, my test 
+suite could actually be killing these mutants. 
